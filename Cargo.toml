@@ -1,0 +1,19 @@
+[package]
+name = "tower-helmet"
+description = "Helps with securing your tower servers with various HTTP headers "
+version = "0.1.0"
+authors = ["Atrox <hello@atrox.dev>"]
+edition = "2018"
+license = "MIT"
+repository = "https://github.com/atrox/tower-helmet"
+homepage = "https://github.com/atrox/tower-helmet"
+categories = ["asynchronous", "network-programming", "web-programming"]
+keywords = ["http", "tower", "security", "service", "header"]
+
+[dependencies]
+futures = "0.3.18"
+http = "0.2.5"
+pin-project-lite = "0.2.7"
+tower-layer = "0.3.1"
+tower-service = "0.3.1"
+lazy_static = "1.4.0"
