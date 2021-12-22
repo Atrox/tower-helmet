@@ -1,5 +1,9 @@
 # tower-helmet
 
+[![Crates.io](https://img.shields.io/crates/v/tower-helmet)](https://crates.io/crates/tower-helmet)
+[![Documentation](https://docs.rs/tower-helmet/badge.svg)](https://docs.rs/tower-helmet)
+[![License](https://img.shields.io/crates/l/tower-helmet)](LICENSE)
+
 this is still very **work in progress**
 
 a port of the beautiful [helmet.js](https://github.com/helmetjs/helmet) in the javascript world.
