@@ -1,6 +1,7 @@
-use crate::IntoHeader;
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
+
+use crate::IntoHeader;
 
 /// `XContentTypeOptions` sets the `X-Content-Type-Options` header to `nosniff`.
 /// This mitigates [MIME type sniffing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing) which can cause security vulnerabilities.

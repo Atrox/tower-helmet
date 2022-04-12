@@ -1,9 +1,10 @@
-use crate::IntoHeader;
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
 
-/// `XXSSProtection` disables browsers' buggy cross-site scripting filter by setting the `X-XSS-Protection` header to `0`.
-/// See [discussion about disabling the header here](https://github.com/helmetjs/helmet/issues/230) and [documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).
+use crate::IntoHeader;
+
+/// `XXSSProtection` disables browsers' buggy cross-site scripting filter by setting the
+/// `X-XSS-Protection` header to `0`. See [discussion about disabling the header here](https://github.com/helmetjs/helmet/issues/230) and [documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).
 pub struct XXSSProtection;
 
 impl Default for XXSSProtection {

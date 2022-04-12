@@ -1,17 +1,21 @@
-use crate::IntoHeader;
-use http::header::{HeaderName, InvalidHeaderValue};
-use http::HeaderValue;
 use std::time::Duration;
 
-/// `StrictTransportSecurity` sets the `Strict-Transport-Security` header which tells browsers to prefer HTTPS over insecure HTTP.
-/// See [the documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) for more.
+use http::header::{HeaderName, InvalidHeaderValue};
+use http::HeaderValue;
+
+use crate::IntoHeader;
+
+/// `StrictTransportSecurity` sets the `Strict-Transport-Security` header which tells browsers to
+/// prefer HTTPS over insecure HTTP. See [the documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) for more.
 pub struct StrictTransportSecurity {
-    /// `max_age` is the number of seconds browsers should remember to prefer HTTPS. It defaults to `15552000`, which is 180 days.
+    /// `max_age` is the number of seconds browsers should remember to prefer HTTPS. It defaults to
+    /// `15552000`, which is 180 days.
     pub max_age: Duration,
-    /// `include_subdomains` dictates whether to include the `includeSubDomains` directive, which makes this policy extend to subdomains. It defaults to `true`.
+    /// `include_subdomains` dictates whether to include the `includeSubDomains` directive, which
+    /// makes this policy extend to subdomains. It defaults to `true`.
     pub include_subdomains: bool,
-    /// If true, it adds the `preload` directive, expressing intent to add your HSTS policy to browsers.
-    /// See [the "Preloading Strict Transport Security" section on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#Preloading_Strict_Transport_Security) for more.
+    /// If true, it adds the `preload` directive, expressing intent to add your HSTS policy to
+    /// browsers. See [the "Preloading Strict Transport Security" section on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#Preloading_Strict_Transport_Security) for more.
     pub preload: bool,
 }
 

@@ -20,7 +20,7 @@ use tower_helmet::header::{ContentSecurityPolicy, ExpectCt, XFrameOptions};
 use tower_helmet::HelmetLayer;
 
 // default layer with all security headers active
-let layer = HelmetLayer::default();
+let layer = HelmetLayer::with_defaults();
 
 // default layer with customizations applied
 let mut directives = HashMap::new();
@@ -32,13 +32,10 @@ let csp = ContentSecurityPolicy {
   ..Default::default()
 };
 
-let layer = HelmetLayer::default()
-    .disable_strict_transport_security()
-    .disable_cross_origin_embedder_policy()
-    .content_security_policy(csp);
+let layer = HelmetLayer::with_defaults().enable(csp);
 
 // completely blank layer, selectively enable and add headers
-let layer = HelmetLayer::new()
-  .x_frame_options(XFrameOptions::SameOrigin)
-  .expect_ct(ExpectCt::default());
+let layer = HelmetLayer::blank()
+  .enable(XFrameOptions::SameOrigin)
+  .enable(ExpectCt::default());
 ```

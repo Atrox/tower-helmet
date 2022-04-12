@@ -13,19 +13,17 @@ mod x_frame_options;
 mod x_permitted_cross_domain_policies;
 mod x_xss_protection;
 
-pub use self::{
-    content_security_policy::ContentSecurityPolicy,
-    cross_origin_embedder_policy::CrossOriginEmbedderPolicy,
-    cross_origin_opener_policy::CrossOriginOpenerPolicy,
-    cross_origin_resource_policy::CrossOriginResourcePolicy,
-    expect_ct::ExpectCt,
-    origin_agent_cluster::OriginAgentCluster,
-    referrer_policy::{ReferrerPolicy, ReferrerPolicyValue},
-    strict_transport_security::StrictTransportSecurity,
-    x_content_type_options::XContentTypeOptions,
-    x_dns_prefetch_control::XDnsPrefetchControl,
-    x_download_options::XDownloadOptions,
-    x_frame_options::XFrameOptions,
-    x_permitted_cross_domain_policies::XPermittedCrossDomainPolicies,
-    x_xss_protection::XXSSProtection,
-};
+pub use self::content_security_policy::ContentSecurityPolicy;
+pub use self::cross_origin_embedder_policy::CrossOriginEmbedderPolicy;
+pub use self::cross_origin_opener_policy::CrossOriginOpenerPolicy;
+pub use self::cross_origin_resource_policy::CrossOriginResourcePolicy;
+pub use self::expect_ct::ExpectCt;
+pub use self::origin_agent_cluster::OriginAgentCluster;
+pub use self::referrer_policy::{ReferrerPolicy, ReferrerPolicyValue};
+pub use self::strict_transport_security::StrictTransportSecurity;
+pub use self::x_content_type_options::XContentTypeOptions;
+pub use self::x_dns_prefetch_control::XDnsPrefetchControl;
+pub use self::x_download_options::XDownloadOptions;
+pub use self::x_frame_options::XFrameOptions;
+pub use self::x_permitted_cross_domain_policies::XPermittedCrossDomainPolicies;
+pub use self::x_xss_protection::XXSSProtection;

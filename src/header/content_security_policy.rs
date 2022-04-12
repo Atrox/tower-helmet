@@ -1,8 +1,10 @@
-use crate::IntoHeader;
+use std::collections::HashMap;
+
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
 use lazy_static::lazy_static;
-use std::collections::HashMap;
+
+use crate::IntoHeader;
 
 lazy_static! {
     static ref DEFAULT_DIRECTIVES: HashMap<&'static str, Vec<&'static str>> = {
@@ -22,13 +24,13 @@ lazy_static! {
     };
 }
 
-/// `ContentSecurityPolicy` sets the `Content-Security-Policy` header which helps mitigate cross-site scripting attacks, among other things.
-/// See [MDN's introductory article on Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+/// `ContentSecurityPolicy` sets the `Content-Security-Policy` header which helps mitigate
+/// cross-site scripting attacks, among other things. See [MDN's introductory article on Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
 ///
 /// This middleware performs very little validation. You should rely on CSP checkers like [CSP Evaluator](https://csp-evaluator.withgoogle.com/) instead.
 ///
-/// If no directive is supplied and `use_defaults` is `true`, the following policy is set (whitespace added for readability):
-/// ```text
+/// If no directive is supplied and `use_defaults` is `true`, the following policy is set
+/// (whitespace added for readability): ```text
 /// default-src 'self';
 /// base-uri 'self';
 /// block-all-mixed-content;
@@ -41,9 +43,6 @@ lazy_static! {
 /// style-src 'self' https: 'unsafe-inline';
 /// upgrade-insecure-requests
 /// ```
-///
-/// Examples:
-/// TODO
 pub struct ContentSecurityPolicy<'a> {
     pub use_defaults: bool,
     /// Each key is the directive name in kebab case (such as `default-src`).
@@ -114,22 +113,5 @@ impl<'a> IntoHeader for ContentSecurityPolicy<'a> {
             .join("; ");
 
         HeaderValue::from_str(header.trim())
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_wow() {
-        for (k, v) in DEFAULT_DIRECTIVES.iter() {
-            println!("{}:{:?}", k, v)
-        }
-
-        let csp = ContentSecurityPolicy::default();
-
-        assert_eq!(csp.header_name(), "Content-Security-Policy");
-        assert_eq!(csp.header_value().unwrap(), "frame-ancestors 'self'; object-src 'none'; style-src 'self' https: 'unsafe-inline'; default-src 'self'; img-src 'self' data:; script-src-attr 'none'; upgrade-insecure-requests ; script-src 'self'; block-all-mixed-content ; base-uri 'self'; font-src 'self' https: data:");
     }
 }

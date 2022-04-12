@@ -1,7 +1,9 @@
-use crate::IntoHeader;
+use std::fmt::{Display, Formatter};
+
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
-use std::fmt::{Display, Formatter};
+
+use crate::IntoHeader;
 
 /// `CrossOriginResourcePolicy` sets the `Cross-Origin-Resource-Policy` header.
 /// For more, see ["Consider deploying Cross-Origin Resource Policy](https://resourcepolicy.fyi/) and [MDN's article on this header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy).

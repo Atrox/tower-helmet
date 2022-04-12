@@ -1,7 +1,9 @@
-use crate::IntoHeader;
+use std::fmt::{Display, Formatter};
+
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
-use std::fmt::{Display, Formatter};
+
+use crate::IntoHeader;
 
 /// `ReferrerPolicy` sets the `Referrer-Policy` header which controls what information is set in [the `Referer` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).
 /// See ["Referer header: privacy and security concerns"](https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns) and [the header's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) on MDN for more.

@@ -1,6 +1,7 @@
-use crate::IntoHeader;
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
+
+use crate::IntoHeader;
 
 /// `CrossOriginEmbedderPolicy` sets the `Cross-Origin-Embedder-Policy` header to `require-corp`.
 /// See [MDN's article on this header](https://developer.cdn.mozilla.net/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) for more.

@@ -1,10 +1,12 @@
-use crate::IntoHeader;
-use http::header::{HeaderName, InvalidHeaderValue};
-use http::HeaderValue;
 use std::fmt::{Display, Formatter};
 
-/// `XPermittedCrossDomainPolicies` sets the `X-Permitted-Cross-Domain-Policies` header, which tells some clients (mostly Adobe products) your domain's policy for loading cross-domain content.
-/// See [the description on OWASP](https://owasp.org/www-project-secure-headers/) for more.
+use http::header::{HeaderName, InvalidHeaderValue};
+use http::HeaderValue;
+
+use crate::IntoHeader;
+
+/// `XPermittedCrossDomainPolicies` sets the `X-Permitted-Cross-Domain-Policies` header, which tells
+/// some clients (mostly Adobe products) your domain's policy for loading cross-domain content. See [the description on OWASP](https://owasp.org/www-project-secure-headers/) for more.
 pub enum XPermittedCrossDomainPolicies {
     None,
     MasterOnly,

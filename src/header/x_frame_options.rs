@@ -1,7 +1,9 @@
-use crate::IntoHeader;
+use std::fmt::{Display, Formatter};
+
 use http::header::{HeaderName, InvalidHeaderValue};
 use http::HeaderValue;
-use std::fmt::{Display, Formatter};
+
+use crate::IntoHeader;
 
 /// `XFrameOptions` sets the `X-Frame-Options` header to help you mitigate [clickjacking attacks](https://en.wikipedia.org/wiki/Clickjacking).
 /// This header is superseded by [the `frame-ancestors` Content Security Policy directive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) but is still useful on old browsers.
