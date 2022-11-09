@@ -64,6 +64,7 @@ pub trait IntoHeader {
 }
 
 /// HelmetLayer
+#[derive(Debug, Clone)]
 pub struct HelmetLayer {
     headers: HeaderMap,
 }
@@ -124,7 +125,7 @@ impl<'a, S> Layer<S> for HelmetLayer {
     }
 }
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct HelmetService<S> {
     inner: S,
     headers: HeaderMap,
