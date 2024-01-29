@@ -78,6 +78,7 @@ impl HelmetLayer {
     }
 
     /// Helmet with most of the headers already added with the base configuration.
+    #[allow(clippy::default_constructed_unit_structs)]
     pub fn with_defaults() -> Self {
         let mut layer = Self::blank();
         layer
