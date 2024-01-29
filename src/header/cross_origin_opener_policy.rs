@@ -7,9 +7,11 @@ use crate::IntoHeader;
 
 /// `CrossOriginOpenerPolicy` sets the `Cross-Origin-Opener-Policy` header.
 /// For more, see [MDN's article on this header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy).
+#[derive(Debug, Clone, Copy, Default)]
 pub enum CrossOriginOpenerPolicy {
     UnsafeNone,
     SameOriginAllowPopups,
+    #[default]
     SameOrigin,
 }
 
@@ -22,12 +24,6 @@ impl Display for CrossOriginOpenerPolicy {
         };
 
         write!(f, "{}", s)
-    }
-}
-
-impl Default for CrossOriginOpenerPolicy {
-    fn default() -> Self {
-        CrossOriginOpenerPolicy::SameOrigin
     }
 }
 

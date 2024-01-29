@@ -43,6 +43,7 @@ lazy_static! {
 /// style-src 'self' https: 'unsafe-inline';
 /// upgrade-insecure-requests
 /// ```
+#[derive(Debug, Clone)]
 pub struct ContentSecurityPolicy<'a> {
     pub use_defaults: bool,
     /// Each key is the directive name in kebab case (such as `default-src`).
@@ -98,7 +99,7 @@ impl<'a> IntoHeader for ContentSecurityPolicy<'a> {
                 DEFAULT_DIRECTIVES.clone()
             } else {
                 let mut directives = DEFAULT_DIRECTIVES.clone();
-                directives.extend(self.directives.clone().into_iter());
+                directives.extend(self.directives.clone());
 
                 directives
             }

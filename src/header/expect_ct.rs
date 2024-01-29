@@ -7,6 +7,7 @@ use crate::IntoHeader;
 
 /// `ExpectCt` sets the `Expect-CT` header which helps mitigate misissued SSL certificates.
 /// See [MDN's article on Certificate Transparency](https://developer.mozilla.org/en-US/docs/Web/Security/Certificate_Transparency) and the [`Expect-CT` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT) for more.
+#[derive(Debug, Clone)]
 pub struct ExpectCt {
     /// `max_age` is the number of seconds to expect Certificate Transparency.
     pub max_age: Duration,

@@ -5,7 +5,7 @@ use crate::IntoHeader;
 
 /// `XDnsPrefetchControl` sets the `X-DNS-Prefetch-Control` header to help control DNS prefetching,
 /// which can improve user privacy at the expense of performance. See [documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control) for more.
-#[derive(Default)]
+#[derive(Debug, Clone, Copy, Default)]
 pub struct XDnsPrefetchControl(
     /// Is indictating whether to enable DNS prefetching.
     pub bool,

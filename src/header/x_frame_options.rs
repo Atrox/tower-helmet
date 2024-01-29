@@ -10,8 +10,10 @@ use crate::IntoHeader;
 /// For more, see `helmet.contentSecurityPolicy`, as well as [the documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options).
 ///
 /// `DENY` or `SAMEORIGIN`. (A legacy directive, `ALLOW-FROM`, is not supported by this crate. [Read more here.](https://github.com/helmetjs/helmet/wiki/How-to-use-X%E2%80%93Frame%E2%80%93Options's-%60ALLOW%E2%80%93FROM%60-directive))
+#[derive(Debug, Clone, Copy, Default)]
 pub enum XFrameOptions {
     Deny,
+    #[default]
     SameOrigin,
 }
 
@@ -23,12 +25,6 @@ impl Display for XFrameOptions {
         };
 
         write!(f, "{}", s)
-    }
-}
-
-impl Default for XFrameOptions {
-    fn default() -> Self {
-        XFrameOptions::SameOrigin
     }
 }
 

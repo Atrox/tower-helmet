@@ -7,7 +7,9 @@ use crate::IntoHeader;
 
 /// `XPermittedCrossDomainPolicies` sets the `X-Permitted-Cross-Domain-Policies` header, which tells
 /// some clients (mostly Adobe products) your domain's policy for loading cross-domain content. See [the description on OWASP](https://owasp.org/www-project-secure-headers/) for more.
+#[derive(Debug, Clone, Copy, Default)]
 pub enum XPermittedCrossDomainPolicies {
+    #[default]
     None,
     MasterOnly,
     ByContentType,
@@ -24,12 +26,6 @@ impl Display for XPermittedCrossDomainPolicies {
         };
 
         write!(f, "{}", s)
-    }
-}
-
-impl Default for XPermittedCrossDomainPolicies {
-    fn default() -> Self {
-        XPermittedCrossDomainPolicies::None
     }
 }
 

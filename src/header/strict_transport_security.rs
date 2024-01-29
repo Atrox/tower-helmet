@@ -7,6 +7,7 @@ use crate::IntoHeader;
 
 /// `StrictTransportSecurity` sets the `Strict-Transport-Security` header which tells browsers to
 /// prefer HTTPS over insecure HTTP. See [the documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) for more.
+#[derive(Debug, Clone, Copy)]
 pub struct StrictTransportSecurity {
     /// `max_age` is the number of seconds browsers should remember to prefer HTTPS. It defaults to
     /// `15552000`, which is 180 days.

@@ -7,8 +7,10 @@ use crate::IntoHeader;
 
 /// `CrossOriginResourcePolicy` sets the `Cross-Origin-Resource-Policy` header.
 /// For more, see ["Consider deploying Cross-Origin Resource Policy](https://resourcepolicy.fyi/) and [MDN's article on this header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy).
+#[derive(Debug, Clone, Copy, Default)]
 pub enum CrossOriginResourcePolicy {
     SameSite,
+    #[default]
     SameOrigin,
     CrossOrigin,
 }
@@ -22,12 +24,6 @@ impl Display for CrossOriginResourcePolicy {
         };
 
         write!(f, "{}", s)
-    }
-}
-
-impl Default for CrossOriginResourcePolicy {
-    fn default() -> Self {
-        CrossOriginResourcePolicy::SameOrigin
     }
 }
 

@@ -114,7 +114,7 @@ impl HelmetLayer {
     }
 }
 
-impl<'a, S> Layer<S> for HelmetLayer {
+impl<S> Layer<S> for HelmetLayer {
     type Service = HelmetService<S>;
 
     fn layer(&self, service: S) -> Self::Service {
